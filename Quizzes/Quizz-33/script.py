@@ -4,3 +4,7 @@ def mystery(list1, list2):
         for j in range(len(list2)):
             if list1[i] == list2[j]:
                 output.append(list1[i])
+    return output
+
+
+print(mystery([1, 2, 3], [3, 4, 5]))
