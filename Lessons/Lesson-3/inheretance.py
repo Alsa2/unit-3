@@ -18,6 +18,12 @@ class Goldfish(Pet):
         return "I'm swimming straight" if self.brain else "I'm swimming upside down"
     
 class Worm(Pet):
+    def __init__(self, name:str, price:int):
+        super().__init__(name = name , price = price, type="Worm")
+        print("Worm created")
+
+    def crawl(self):
+        return "I'm crawling"
     
 
 bob = Pet(name="Bob", price=3, type="Dog")
