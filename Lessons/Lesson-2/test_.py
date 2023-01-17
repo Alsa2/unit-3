@@ -10,6 +10,4 @@ def test_invalid():
         exemptions.division(a=5, b=0)
     with pytest.raises(TypeError):
         exemptions.division(a="test", b="test")
-
-
-
+        
