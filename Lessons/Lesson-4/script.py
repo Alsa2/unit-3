@@ -54,4 +54,5 @@ print(country)
 # The salesman problem is a problem where the goal is to visit all the cities in the least distance possible. Easiest way is to use the nearest city algorithm and so on.
 # - "The Traveling Salesman Problem: A Computational Study" by D. B. Johnson, E. M. L. Johnson, and M. H. M. Winfree in 1964
 # - The solution is the Held-Karp algorithm, which is too complicated for me to undersant (joking I am a lasy person)
+# - Personally I like bruteforce
 
