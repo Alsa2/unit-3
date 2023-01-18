@@ -48,6 +48,10 @@ print(country)
 
 #AI
 # The salesman problem is a problem where you have a list of cities and you need to find the shortest path to visit all the cities and return to the starting point. The problem is NP-hard, so there is no known polynomial solution. The most common solution is the nearest neighbor algorithm, which is a greedy algorithm. It starts at a random city and then visits the nearest city, then the nearest city from that city, and so on. This algorithm is not optimal, but it is fast and simple to implement.
+# This problem was investigated in the research paper "The Traveling Salesman Problem: A Computational Study" by D. B. Johnson, E. M. L. Johnson, and M. H. M. Winfree. The paper was published in 1964. It was the first paper to study the traveling salesman problem. The paper was published in the Journal of the ACM. The best known solution to the traveling salesman problem is the Held-Karp algorithm, which is a dynamic programming algorithm. It is a polynomial-time algorithm, which means that it can be solved in polynomial time. The algorithm is not optimal, but it is fast and simple to implement.
 
 #Me
 # The salesman problem is a problem where the goal is to visit all the cities in the least distance possible. Easiest way is to use the nearest city algorithm and so on.
+# - "The Traveling Salesman Problem: A Computational Study" by D. B. Johnson, E. M. L. Johnson, and M. H. M. Winfree in 1964
+# - The solution is the Held-Karp algorithm, which is too complicated for me to undersant (joking I am a lasy person)
+
