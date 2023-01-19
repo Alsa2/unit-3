@@ -3,6 +3,9 @@ class CounpoundInterest():
         self.principal = principal
         self.rate = rate
         self.number_of_years = number_of_years
+    
+    def calcalculate_interest(self):
+        return (int((self.principal * (1 + self.rate) ** self.number_of_years)*100)/100)
 
 class AccountingProgram():
     def __init__(self):
@@ -21,4 +24,4 @@ class AccountingProgram():
             raise ValueError("Years should be greater than zero")
         self.Compound.number_of_years = number_of_years
     def calculate_interest(self):
-        return (int((self.Compound.principal * (1 + self.Compound.rate) ** self.Compound.number_of_years)*100)/100)
+        return self.Compound.calcalculate_interest()
