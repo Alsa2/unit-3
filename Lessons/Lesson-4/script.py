@@ -44,6 +44,8 @@ for i in range(len(city_name)):
     country.add_city(City(city_name[i], Coordinate(random.randint(0, 100), random.randint(0, 100))))
 print(country)
 
+
+
 # What is the salesman problem and possible solutions?
 
 #AI
