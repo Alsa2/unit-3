@@ -20,6 +20,12 @@ class layout_demo(MDApp):
         
         self.root.ids.counter_label.text = f"x= {self.count}"
 
+    def set_counter(self, value):
+        user_start = int(self.root.ids.user_start_x.text)
+        self.count = user_start
+        self.root.ids.counter_label.text = f"x= {self.count}"
+        
+
 demo_class = layout_demo()
 demo_class.run()
     
