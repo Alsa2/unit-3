@@ -1,0 +1,25 @@
+#kivy 1.11.1
+
+Screen:
+    size: 500, 500
+
+    MDBoxLayout:
+        id: main_box
+        orientation: 'vertical'
+        size_hint: .7, .3
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        mb_bg_color: "#00FF00"
+
+        MDLabel:
+            id: counter_label
+            font_style: 'H3'
+
+        MDRaisedButton:
+            id: plus_button
+            text: '+1'
+            #stick to the right
+            pos_hint: {'right': 1, 'center_y': .5}
+            size_hint: .5, .5
+            on_release: app.change()
+            md_bg_color: "#00FF00"
+
