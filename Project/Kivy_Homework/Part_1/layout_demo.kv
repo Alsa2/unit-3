@@ -1,0 +1,42 @@
+Screen:
+    size: 500, 500
+
+    MDBoxLayout:
+        id: main_box
+        orientation: 'vertical'
+        size_hint:.9,.8
+        pos_hint: {'center_x':0.5, 'center_y':0.5}
+
+        MDLabel:
+            text:"Currency Converter"
+            halign: 'center'
+            font_style: 'H3'
+            text_color: "#000000"
+            size_hint: 1, .2
+            pos_hint: {'center_x':0.5}
+
+        MDTextField:
+            id: original_in
+            hint_text: "Enter Amount in EUR"
+            icon_right: "cash"
+            icon_right_color: "e63946"
+            pos_hint: {'center_x':0.5}
+        
+        MDBoxLayout:
+            orientation: "vertical"
+
+            MDLabel:
+                id: converted_out
+                text: "Converted Amount"
+                halign: 'center'
+                font_style: 'H5'
+                text_color: "#000000"
+                size_hint: 1, .2
+
+            MDChip:
+                text: "Portland"
+                icon_left: "avatar.png"
+                icon_right: "close-circle-outline"
+                line_color: app.theme_cls.disabled_hint_text_color
+
+
