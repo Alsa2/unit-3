@@ -22,6 +22,7 @@ Screen:
                 hint_text: 'Enter Bytes'
                 helper_text: 'Enter Bytes'
                 helper_text_mode: 'on_focus'
+                input_filter: 'float'
             MDRaisedButton:
                 id: byte_button
                 text: 'Convert to Bits'
@@ -36,6 +37,7 @@ Screen:
                 hint_text: 'Enter Bits'
                 helper_text: 'Enter Bits'
                 helper_text_mode: 'on_focus'
+                input_filter: 'float'
             MDRaisedButton:
                 id: bit_button
                 text: 'Convert to Bytes'
@@ -43,9 +45,7 @@ Screen:
 
         MDLabel:
             id: output_label
-            text: 'Ready!'
+            text: 'Click Convert'
             halign: 'center'
-            theme_text_color: 'Custom'
-            text_color: 0,0,0,1
             font_style: 'H4'
             size_hint: 1, .2
