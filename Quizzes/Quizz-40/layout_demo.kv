@@ -1,0 +1,25 @@
+Screen:
+    size: 500, 500
+
+
+    MDBoxLayout:
+        id: main_box
+        orientation: 'vertical'
+        mb_bg_color: "#FFFFFF"
+
+        MDLabel:
+            id: name
+            text:"Alex"
+            halign: 'center'
+            font_style: 'H3'
+            text_color: "FFFFFF"
+            pos_hint: {'center_x':0.5, 'center_y':0.5}
+
+        MDRaisedButton:
+            id: color_button
+            text: 'Change Theme'
+            pos_hint: {'right': 1, 'center_y': .5}
+            size_hint: .5, .5
+            on_release: app.change_color()
+            md_bg_color: "#FFFFFF"
+

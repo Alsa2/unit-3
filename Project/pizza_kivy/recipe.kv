@@ -1,0 +1,288 @@
+ScreenManager:
+    id:src_manager
+
+    IntroScreen:
+        name: "IntroScreen"
+
+    PrepareDoughtScreen:
+        name: "PrepareDoughtScreen"
+
+    AddingTomatoScreen:
+        name: "AddingTomatoScreen"
+
+    AddingCheeseScreen:
+        name: "AddingCheeseScreen"
+
+    AddingToppingsScreen:
+        name: "AddingToppingsScreen"
+
+    FurnaceScreen:
+        name: "FurnaceScreen"
+
+    PizzaReadyScreen:
+        name: "PizzaReadyScreen"
+    
+
+<IntroScreen>:
+
+    MDCard:
+
+        size_hint: .8, .8
+        pos_hint: {"center_x": .5, "center_y": .5}
+        md_bg_color: 0.5, 0.5, 0.5, 1
+        orientation: "vertical"
+        padding: "8dp"
+
+        MDLabel:
+            text: "Welcome to the Pizza Maker App"
+            halign: "center"
+            font_style: "H2"
+
+        MDRaisedButton:
+            text: "Start"
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_release: app.root.current = app.on_start()
+            on_release: app.root.current = "PrepareDoughtScreen"
+
+        FitImage:
+            source: "assets/pizza.jpg"
+            size_hint: 1, 1
+            allow_stretch: True
+            radius: [25,]
+
+
+
+<PrepareDoughtScreen>:
+    MDCard:
+
+        size_hint: .8, .8
+        pos_hint: {"center_x": .5, "center_y": .5}
+        md_bg_color: 0.5, 0.5, 0.5, 1
+        orientation: "vertical"
+        padding: "8dp"
+
+        MDLabel:
+            text: "Prepare the dought"
+            halign: "center"
+            font_style: "H2"
+
+        FitImage:
+            source: "assets/dough.jpg"
+            size_hint: 1, 1
+            allow_stretch: True
+            radius: [25,]
+        
+        MDLabel:
+            text: "Not the nan pizza"
+            halign: "center"
+            font_style: "H4"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            padding: "8dp"
+
+            MDRaisedButton:
+                text: "Back"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: app.root.current = "IntroScreen"
+
+            MDRaisedButton:
+                text: "Next"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: app.root.current = "AddingTomatoScreen"
+
+<AddingTomatoScreen>:
+    MDCard:
+
+        size_hint: .8, .8
+        pos_hint: {"center_x": .5, "center_y": .5}
+        md_bg_color: 0.5, 0.5, 0.5, 1
+        orientation: "vertical"
+        padding: "8dp"
+
+        MDLabel:
+            text: "Adding tomato"
+            halign: "center"
+            font_style: "H2"
+
+        FitImage:
+            source: "assets/tomato.jpg"
+            size_hint: 1, 2
+            allow_stretch: True
+            radius: [25,]
+        
+        MDLabel:
+            text: "Choose the good italian can tomato"
+            halign: "center"
+            font_style: "H4"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            padding: "8dp"
+
+            MDRaisedButton:
+                text: "Back"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: app.root.current = "PrepareDoughtScreen"
+            
+            MDRaisedButton:
+                text: "Next"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: app.root.current = "AddingCheeseScreen"
+
+<AddingCheeseScreen>:
+    MDCard:
+
+        size_hint: .8, .8
+        pos_hint: {"center_x": .5, "center_y": .5}
+        md_bg_color: 0.5, 0.5, 0.5, 1
+        orientation: "vertical"
+        padding: "8dp"
+
+        MDLabel:
+            text: "Adding cheese"
+            halign: "center"
+            font_style: "H2"
+
+        FitImage:
+            source: "assets/cheese.jpg"
+            size_hint: 1, 2
+            allow_stretch: True
+            radius: [25,]
+        
+        MDLabel:
+            text: "Only Fior Di Latte Onegaishimasu"
+            halign: "center"
+            font_style: "H4"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            padding: "8dp"
+
+            MDRaisedButton:
+                text: "Back"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: app.root.current = "AddingTomatoScreen"
+            
+            MDRaisedButton:
+                text: "Next"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: app.root.current = "AddingToppingsScreen"
+
+
+<AddingToppingsScreen>:
+    MDCard:
+
+        size_hint: .8, .8
+        pos_hint: {"center_x": .5, "center_y": .5}
+        md_bg_color: 0.5, 0.5, 0.5, 1
+        orientation: "vertical"
+        padding: "8dp"
+
+        MDLabel:
+            text: "Adding toppings"
+            halign: "center"
+            font_style: "H2"
+
+        FitImage:
+            source: "assets/toppings.jpg"
+            size_hint: 1, 2
+            allow_stretch: True
+            radius: [25,]
+        
+        MDLabel:
+            text: "Choose your favorite toppings"
+            halign: "center"
+            font_style: "H4"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            padding: "8dp"
+
+            MDRaisedButton:
+                text: "Back"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: app.root.current = "AddingCheeseScreen"
+            
+            MDRaisedButton:
+                text: "Next"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: app.root.current = "FurnaceScreen"
+
+<FurnaceScreen>:
+    MDCard:
+
+        size_hint: .8, .8
+        pos_hint: {"center_x": .5, "center_y": .5}
+        md_bg_color: 0.5, 0.5, 0.5, 1
+        orientation: "vertical"
+        padding: "8dp"
+
+        MDLabel:
+            text: "Furnace"
+            halign: "center"
+            font_style: "H2"
+
+        FitImage:
+            source: "assets/furnace.jpg"
+            size_hint: 1, 2
+            allow_stretch: True
+            radius: [25,]
+        
+        MDLabel:
+            text: "Put the pizza in the oven (only fire furnace and wait until it's ready)"
+            halign: "center"
+            font_style: "H5"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            padding: "8dp"
+
+            MDRaisedButton:
+                text: "Back"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: app.root.current = "AddingToppingsScreen"
+            
+            MDRaisedButton:
+                text: "Next"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: app.root.current = "PizzaReadyScreen"
+
+<PizzaReadyScreen>:
+    MDCard:
+
+        size_hint: .8, .8
+        pos_hint: {"center_x": .5, "center_y": .5}
+        md_bg_color: 0.5, 0.5, 0.5, 1
+        orientation: "vertical"
+        padding: "8dp"
+
+        MDLabel:
+            text: "Pizza ready"
+            halign: "center"
+            font_style: "H2"
+
+        FitImage:
+            source: "assets/pizza.jpg"
+            size_hint: 1, 2
+            allow_stretch: True
+            radius: [25,]
+        
+        MDLabel:
+            text: "Enjoy your pizza"
+            halign: "center"
+            font_style: "H4"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            padding: "8dp"
+
+            MDRaisedButton:
+                text: "Back"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: app.root.current = "FurnaceScreen"
+            
+            MDRaisedButton:
+                text: "Make another pizza"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                on_release: app.root.current = "IntroScreen"
