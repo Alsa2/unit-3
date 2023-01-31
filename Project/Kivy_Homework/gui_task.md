@@ -108,6 +108,8 @@ Screen:
 
 ![](/Images/kivy-part1-proof.png)
 
+No need fore format validation as the input filter is set to float(input_filter: 'float'). This means that only numbers can be entered into the text field.
+
 ## Task 2
 
 ### Python code
@@ -199,4 +201,4 @@ Screen:
 ### Proof
 
 ![](/Images/kivy-part2-proof.png)
-
+Same as before, no need for format validation as the input filter is set to float(input_filter: 'float'). This means that only numbers can be entered into the text field.
