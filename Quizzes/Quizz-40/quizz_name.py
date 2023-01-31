@@ -9,17 +9,21 @@ class layout_demo(MDApp):
         self.color_positive = "black"
         self.color_negative = "white"
 
-    def change_color(self):
+    def change_theme(self):
         if self.color_positive == "black":
             self.color_positive = "white"
-            self.color_negative = "black"
-            self.root.ids.name.text = "000000"
+            self.root.ids.main_screen.md_bg_color = "#000000"
+            self.root.ids.changebutton.text_color = 1,1,1,1
+            self.root.ids.name.text_color = 1, 1, 1, 1
+            self.root.ids.changebutton.text = "Light Mode"
 
 
         else:
             self.color_positive = "black"
-            self.color_negative = "white"
-            self.root.ids.name.text = "FFFFFF"
+            self.root.ids.main_screen.md_bg_color = "#FFFFFF"
+            self.root.ids.changebutton.text_color = 0,0,0,1
+            self.root.ids.name.text_color = 0, 0, 0, 1
+            self.root.ids.changebutton.text = "Dark Mode"
 
 
 
