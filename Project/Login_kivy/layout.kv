@@ -131,7 +131,7 @@ ScreenManager:
         MDRaisedButton:
             text: 'Login'
             pos_hint: {'center_x': .5, 'center_y': .5}
-            on_release: app.login(username.text, password.text)
+            on_release: root.register(username.text, password.text, confirm_password.text)
 
         MDLabel:
             id: error_label
