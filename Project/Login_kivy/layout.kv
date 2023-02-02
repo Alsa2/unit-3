@@ -1,0 +1,177 @@
+ScreenManager:
+    LoginScreen:
+        name: 'login'
+
+    RegistrationScreen:
+        name: 'register'
+
+    LoginSuccess:
+        name: 'success'
+
+
+<LoginScreen>:
+    FitImage:
+        source: 'assets/bg.jpg'
+        allow_stretch: True
+        keep_ratio: False
+
+    MDCard:
+        size_hint: .6, .8
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        orientation: 'vertical'
+
+        MDLabel:
+            text: 'Login'
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 0, 0, 0, 1
+            font_style: 'H3'
+        
+        MDTextField:
+            id: username
+            hint_text: 'Username'
+            icon_right: 'account'
+            icon_right_color: app.theme_cls.primary_color
+            helper_text_mode: 'on_focus'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            size_hint_x: None
+            width: 300
+        
+        MDTextField:
+            id: password
+            hint_text: 'Password'
+            icon_right: 'eye-off'
+            icon_right_color: app.theme_cls.primary_color
+            helper_text: 'at least 8 chars'
+            helper_text_mode: 'on_focus'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            size_hint_x: None
+            width: 300
+            password: True
+        
+        MDRaisedButton:
+            text: 'Login'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release: root.login(username.text, password.text)
+
+        MDLabel:
+            id: error_label
+            text: ''
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 1, 0, 0, 1
+            font_style: 'H6'
+            size_hint_y: None
+
+        MDLabel:
+            text: "Don\'t have an account?"
+            halign: "center"
+            theme_text_color: 'Custom'
+            text_color: 0, 0, 0, 1
+            font_style: 'H6'
+            size_hint_y: None
+        
+        MDRaisedButton:
+            text: 'Register'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release: app.root.current = 'register'
+
+<RegistrationScreen>:
+    FitImage:
+        source: 'assets/bg.jpg'
+        allow_stretch: True
+        keep_ratio: False
+
+    MDCard:
+        size_hint: .6, .8
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        orientation: 'vertical'
+
+        MDLabel:
+            text: 'Registration'
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 0, 0, 0, 1
+            font_style: 'H3'
+        
+        MDTextField:
+            id: username
+            hint_text: 'Username'
+            icon_right: 'account'
+            icon_right_color: app.theme_cls.primary_color
+            helper_text_mode: 'on_focus'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            size_hint_x: None
+            width: 300
+        
+        MDTextField:
+            id: password
+            hint_text: 'Password'
+            icon_right: 'eye-off'
+            icon_right_color: app.theme_cls.primary_color
+            helper_text: 'at least 8 chars'
+            helper_text_mode: 'on_focus'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            size_hint_x: None
+            width: 300
+            password: True
+
+        MDTextField:
+            id: confirm_password
+            hint_text: 'Confirm Password'
+            icon_right: 'eye-off'
+            icon_right_color: app.theme_cls.primary_color
+            helper_text: 'at least 8 chars'
+            helper_text_mode: 'on_focus'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            size_hint_x: None
+            width: 300
+            password: True
+        
+        MDRaisedButton:
+            text: 'Login'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release: app.login(username.text, password.text)
+
+        MDLabel:
+            id: error_label
+            text: ''
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 1, 0, 0, 1
+            font_style: 'H6'
+            size_hint_y: None
+
+
+<LoginSuccess>:
+    FitImage:
+        source: 'assets/bg.jpg'
+        allow_stretch: True
+        keep_ratio: False
+
+    MDCard:
+        size_hint: .6, .8
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        orientation: 'vertical'
+
+        MDLabel:
+            text: 'Login Success'
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 0, 0, 0, 1
+            font_style: 'H3'
+        
+        MDLabel:
+            id: username
+            text: ''
+            halign: 'center'
+            theme_text_color: 'Custom'
+            text_color: 0, 0, 0, 1
+            font_style: 'H6'
+            size_hint_y: None
+        
+        MDRaisedButton:
+            text: 'EXIT'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release: app.exit()
+

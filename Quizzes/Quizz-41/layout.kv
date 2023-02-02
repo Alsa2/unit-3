@@ -1,0 +1,66 @@
+MDScreen:
+    size:500,500
+    MDBoxLayout:
+        id: main_screen
+        orientation:"vertical"
+        
+        MDLabel:
+            text:"Tic Tac Toe by Bob"
+            halign:"center"
+            theme_text_color:"Custom"
+            text_color:0,0,0,1
+            font_style:"H4"
+            size_hint_y:None
+            height:dp(50)
+        MDLabel:
+            id:turn_label
+            text:"It is X's turn"
+            halign:"center"
+            theme_text_color:"Custom"
+            text_color:0,0,0,1
+            font_style:"H4"
+            size_hint_y:None
+            height:dp(50)
+
+        GridLayout:
+            cols:3
+            rows:3
+            size_hint_y:None
+            height:dp(300)
+            MDRectangleFlatButton:
+                id:button1
+                text:""
+                on_release:app.button_pressed(1)
+            MDRectangleFlatButton:
+                id:button2
+                text:""
+                on_release:app.button_pressed(2)
+            MDRectangleFlatButton:
+                id:button3
+                text:""
+                on_release:app.button_pressed(3)
+            MDRectangleFlatButton:
+                id:button4
+                text:""
+                on_release:app.button_pressed(4)
+            MDRectangleFlatButton:
+                id:button5
+                text:""
+                on_release:app.button_pressed(5)
+            MDRectangleFlatButton:
+                id:button6
+                text:""
+                on_release:app.button_pressed(6)
+            MDRectangleFlatButton:
+                id:button7
+                text:""
+                on_release:app.button_pressed(7)
+            MDRectangleFlatButton:
+                id:button8
+                text:""
+                on_release:app.button_pressed(8)
+            MDRectangleFlatButton:
+                id:button9
+                text:""
+                on_release:app.button_pressed(9)
+            
