@@ -3,5 +3,8 @@
         "Lessons"
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
+    "python.testing.pytestEnabled": true,
+    "dataworkspace.excludedProjects": [
+        "Project/My_First_DB/my_first_db/my_first_db.sqlproj"
+    ]
 }
