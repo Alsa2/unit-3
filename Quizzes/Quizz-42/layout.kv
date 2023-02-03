@@ -1,0 +1,43 @@
+ScreenManager:
+    mysteryPageA:
+        name: "mysteryPageA"
+
+    mysteryPageB:
+        name: 'mysteryPageB'
+
+
+<mysteryPageA>:
+    MDLabel:
+        text: 'Mystery Page A'
+        halign: 'center'
+        theme_text_color: 'Custom'
+        text_color: 0, 0, 0, 1
+        font_style: 'H3'
+
+    MDRaisedButton:
+        text: 'Message1'
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        on_release: root.message1()
+
+    MDRaisedButton:
+        text: 'Next Page'
+        pos_hint: {'center_x': .5, 'center_y': .3}
+        on_release: root.manager.current = 'mysteryPageB'
+
+<mysteryPageB>:
+    MDLabel:
+        text: 'Mystery Page B'
+        halign: 'center'
+        theme_text_color: 'Custom'
+        text_color: 0, 0, 0, 1
+        font_style: 'H3'
+    
+    MDRaisedButton:
+        text: 'Message2'
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        on_release: root.message2()
+
+    MDRaisedButton:
+        text: 'Previous Page'
+        pos_hint: {'center_x': .5, 'center_y': .3}
+        on_release: root.manager.current = 'mysteryPageA'
