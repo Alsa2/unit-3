@@ -1,12 +1,12 @@
 ScreenManager:
-    mysteryPageA:
-        name: "mysteryPageA"
+    MysteryPageA:
+        name: "MysteryPageA"
 
-    mysteryPageB:
-        name: 'mysteryPageB'
+    MysteryPageB:
+        name: 'MysteryPageB'
 
 
-<mysteryPageA>:
+<MysteryPageA>:
     MDLabel:
         text: 'Mystery Page A'
         halign: 'center'
@@ -22,9 +22,9 @@ ScreenManager:
     MDRaisedButton:
         text: 'Next Page'
         pos_hint: {'center_x': .5, 'center_y': .3}
-        on_release: root.manager.current = 'mysteryPageB'
+        on_release: root.manager.current = 'MysteryPageB'
 
-<mysteryPageB>:
+<MysteryPageB>:
     MDLabel:
         text: 'Mystery Page B'
         halign: 'center'
@@ -40,4 +40,4 @@ ScreenManager:
     MDRaisedButton:
         text: 'Previous Page'
         pos_hint: {'center_x': .5, 'center_y': .3}
-        on_release: root.manager.current = 'mysteryPageA'
+        on_release: root.manager.current = 'MysteryPageA'
