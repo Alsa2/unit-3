@@ -1,12 +1,20 @@
-import script
+from script import to_roman
+import pytest
 
-class quizz34:
-    def __init__(self, num:int):
-        self.num = num
-        print("You have created a new object")
-    def solve(self)->str:
-        return script.numbertoroman(self.num)
+def test_to_roman():
+    assert to_roman(1) == 'I'
+    assert to_roman(4) == 'IV'
+    assert to_roman(9) == 'IX'
+    assert to_roman(37) == 'XXXVII'
+    assert to_roman(44) == 'XLIV'
+    assert to_roman(50) == 'L'
+    assert to_roman(99) == 'XCIX'
+    assert to_roman(100) == 'C'
+    assert to_roman(77) == 'LXXVII'
+    assert to_roman(93) == 'XCIII'
 
-case1 = quizz34(1)
-solution1 = case1.solve()
-print(solution1)
+
+def test_to_roman_exceptions():
+    # check that the program raises a ValueError
+    with pytest.raises(ValueError):
+        to_roman(101)
