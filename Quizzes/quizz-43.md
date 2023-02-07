@@ -27,3 +27,10 @@ SELECT * FROM Movies;
 ```
 
 ![](/Images/quizz43-proof.png)
+
+id	name	year	budget	category	director	producer
+1	Matrix	1999	63000000	Action	Lana Wachowski	Joel Silver
+2	Martian	2015	108000000	Sci-Fi	Ridley Scott	Simon Kinberg
+
+# delete the id 1
+DELETE FROM Movies WHERE id = 1;
