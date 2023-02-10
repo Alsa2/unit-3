@@ -1,0 +1,108 @@
+from kivymd.app import MDApp
+from kivymd.uix.screen import MDScreen
+import sqlite3
+
+class database_handler:
+    def __init__(self):
+        self.conn = sqlite3.connect('Database.db')
+        self.c = self.conn.cursor()
+        self.c.execute('''CREATE TABLE IF NOT EXISTS users(
+            id INTEGER PRIMARY KEY,
+            email TEXT NOT NULL UNIQUE,
+            password TEXT NOT NULL,
+            username TEXT NOT NULL UNIQUE
+        )''')
+        self.conn.commit()
+        self.conn.close()
+        
+    def insert(self, email, password, username):
+        # check if the username or email already exists and if it does, return an error
+        self.conn = sqlite3.connect('Database.db')
+        self.c = self.conn.cursor()
+        self.c.execute("SELECT * FROM users WHERE username = ? OR email = ?", (username, email))
+        data = self.c.fetchone()
+        if data:
+            self.conn.close()
+            return "Username or email already exists"
+
+        username = username.replace("'", "")
+        password = password.replace("'", "")
+        username = username.replace(";", "")
+        password = password.replace(";", "")
+        self.conn = sqlite3.connect('Database.db')
+        self.c = self.conn.cursor()
+        self.c.execute("INSERT INTO users VALUES (NULL, ?, ?, ?)", (email, password, username))
+        self.conn.commit()
+        self.conn.close()
+        
+    def fetch(self, username, password):
+        username = username.replace("'", "")
+        password = password.replace("'", "")
+        username = username.replace(";", "")
+        password = password.replace(";", "")
+        self.conn = sqlite3.connect('Database.db')
+        self.c = self.conn.cursor()
+        self.c.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+        data = self.c.fetchone()
+        self.conn.close()
+        return data
+
+class LoginScreen(MDScreen):
+    def login(self, username, password):
+        # use the class database_handler to fetch the data
+        db = database_handler()
+        data = db.fetch(username, password)
+        if data:
+            self.manager.current = "success"
+        else:
+            self.ids.error_label.text = "Invalid username or password"
+            self.ids.password.helper_text_mode = "on_error"
+            self.ids.password.helper_text = "Invalid password"
+            print("Invalid username or password")
+        
+
+
+
+class RegistrationScreen(MDScreen):
+    def register(self, username, password, confirm_password):
+        if password == confirm_password:
+            # use the class database_handler to insert the data
+            db = database_handler()
+            data = db.insert(username, password, username)
+            if data:
+                self.ids.error_label.text = data
+                self.ids.password.helper_text_mode = "on_error"
+                self.ids.password.helper_text = data
+                self.ids.confirm_password.helper_text_mode = "on_error"
+                self.ids.confirm_password.helper_text = data
+                return
+
+            self.manager.current = "success"
+            
+            
+            
+
+        else:
+            self.ids.error_label.text = "Passwords do not match"
+            self.ids.password.helper_text_mode = "on_error"
+            self.ids.password.helper_text = "Passwords do not match"
+            self.ids.confirm_password.helper_text_mode = "on_error"
+            self.ids.confirm_password.helper_text = "Passwords do not match"
+
+
+class LoginSuccess(MDScreen):
+    pass
+
+class layout(MDApp):
+    def build(self):
+        db = database_handler()
+        return
+        
+
+        
+    
+
+
+
+login = layout()
+login.run()

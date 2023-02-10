@@ -173,5 +173,5 @@ ScreenManager:
         MDRaisedButton:
             text: 'EXIT'
             pos_hint: {'center_x': .5, 'center_y': .5}
-            on_release: app.exit()
+            on_release: app.root.current = 'login'
 
