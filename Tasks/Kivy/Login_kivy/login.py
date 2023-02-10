@@ -1,32 +1,39 @@
 from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
+import sqlite3
 
-csv_path = "/Users/alsa/Documents/unit-3/Project/Login_kivy/accounts.csv"
+
 
 class LoginScreen(MDScreen):
     def login(self, username, password):
         
-        with open(csv_path, "r") as file:
-            users = file.readlines()
-
-        for user in users:
-            if user == f"{username},{password}":
-                self.manager.current = "success"
-                return
-            else:
-                self.ids.error_label.text = "Invalid username or password"
-                self.ids.password.helper_text_mode = "on_error"
-                self.ids.password.helper_text = "Invalid password"
-                print("Invalid username or password")
+        conn = sqlite3.connect('Database.db')
+        c = conn.cursor()
+        c.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+        data = c.fetchone()
+        if data:
+            self.manager.current = "success"
+        
+        else:
+            self.ids.error_label.text = "Invalid username or password"
+            self.ids.password.helper_text_mode = "on_error"
+            self.ids.password.helper_text = "Invalid password"
+            print("Invalid username or password")
+        
+        conn.close()
 
 
 
 class RegistrationScreen(MDScreen):
     def register(self, username, password, confirm_password):
         if password == confirm_password:
-            with open(csv_path, "a") as file:
-                file.write(f"{username},{password}\n")
-                self.manager.current = "success"
+            conn = sqlite3.connect('Database.db')
+            c = conn.cursor()
+            c.execute("INSERT INTO users VALUES (NULL, ?, ?, ?)", (username, password, username))
+            conn.commit()
+            conn.close()
+            self.manager.current = "success"
+
         else:
             self.ids.error_label.text = "Passwords do not match"
             self.ids.password.helper_text_mode = "on_error"
