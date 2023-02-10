@@ -15,10 +15,10 @@ c.execute('''CREATE TABLE IF NOT EXISTS users(
 )''')
 # Insert a row of data
 
-#c.execute("INSERT INTO users VALUES (1, 'bob@gmail.com', 'bob', 'bob')")
+c.execute("INSERT INTO users VALUES (1, 'bob@gmail.com', 'bob', 'bob')")
 
 # Save (commit) the changes
-#conn.commit()
+conn.commit()
 
 # print all the rows
 for row in c.execute('SELECT * FROM users'):

@@ -6,6 +6,11 @@ import sqlite3
 
 class LoginScreen(MDScreen):
     def login(self, username, password):
+
+        username = username.replace("'", "")
+        password = password.replace("'", "")
+        username = username.replace(";", "")
+        password = password.replace(";", "")
         
         conn = sqlite3.connect('Database.db')
         c = conn.cursor()
@@ -26,6 +31,15 @@ class LoginScreen(MDScreen):
 
 class RegistrationScreen(MDScreen):
     def register(self, username, password, confirm_password):
+        # prevent sql injection
+        username = username.replace("'", "")
+        password = password.replace("'", "")
+        confirm_password = confirm_password.replace("'", "")
+        username = username.replace(";", "")
+        password = password.replace(";", "")
+        confirm_password = confirm_password.replace(";", "")
+
+
         if password == confirm_password:
             conn = sqlite3.connect('Database.db')
             c = conn.cursor()
