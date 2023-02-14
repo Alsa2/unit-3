@@ -1,10 +1,22 @@
 from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
 import sqlite3
+from passlib.context import CryptContext
+
+pwd_config = CryptContext(schemes=["pbkdf2_sha256"], 
+    default="pbkdf2_sha256", 
+    pbkdf2_sha256__default_rounds=30000)
+
+def encrypt_password(password):
+    # $scheme$salt$digest
+    return pwd_config.hash(password)
+    #return "test"
+
+database = "Database.db"
 
 class database_handler:
     def __init__(self):
-        self.conn = sqlite3.connect('Database.db')
+        self.conn = sqlite3.connect(database)
         self.c = self.conn.cursor()
         self.c.execute('''CREATE TABLE IF NOT EXISTS users(
             id INTEGER PRIMARY KEY,
@@ -16,20 +28,27 @@ class database_handler:
         self.conn.close()
         
     def insert(self, email, password, username):
+
+        username = username.replace("'", "")
+        password = password.replace("'", "")
+        username = username.replace(";", "")
+        password = password.replace(";", "")
+
+
         # check if the username or email already exists and if it does, return an error
-        self.conn = sqlite3.connect('Database.db')
+        self.conn = sqlite3.connect(database)
         self.c = self.conn.cursor()
         self.c.execute("SELECT * FROM users WHERE username = ? OR email = ?", (username, email))
         data = self.c.fetchone()
         if data:
             self.conn.close()
             return "Username or email already exists"
+        
+        # hash the password
+        password = encrypt_password(password)
 
-        username = username.replace("'", "")
-        password = password.replace("'", "")
-        username = username.replace(";", "")
-        password = password.replace(";", "")
-        self.conn = sqlite3.connect('Database.db')
+
+        self.conn = sqlite3.connect(database)
         self.c = self.conn.cursor()
         self.c.execute("INSERT INTO users VALUES (NULL, ?, ?, ?)", (email, password, username))
         self.conn.commit()
@@ -40,8 +59,13 @@ class database_handler:
         password = password.replace("'", "")
         username = username.replace(";", "")
         password = password.replace(";", "")
-        self.conn = sqlite3.connect('Database.db')
+        self.conn = sqlite3.connect(database)
         self.c = self.conn.cursor()
+
+        # hash the password
+        password = encrypt_password(password)
+        print(username, password)
+
         self.c.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
         data = self.c.fetchone()
         self.conn.close()
