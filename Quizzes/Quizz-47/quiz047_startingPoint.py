@@ -80,21 +80,28 @@ class quiz047(MDApp):
     def save(self):
         #repeat the algorithm in update but create variables to save the amount of each item:
         #base = int(base)
-        #inhabitant = amount in JPY to remove from base for inhabitant tax
-        #income_tax = amount in JPY to remove from base for income tax
-        #pension = amount in JPY to remove from base for pension tax
-        #health = amount in JPY to remove from base for health tax
-        #total = total net salary
-        #hahs = hash of the calcualtions in the format
-        #inhabitant4,income_tax3,pension2,health1,total1103  (here the numbers next to the category are percentages)
+        # remove " JPY"
+        base = []
+        inhabitant = []
+        income_tax = []
+        pension = []
+        health = []
+        salary = []
+        hash = []
 
-        # query = f"""INSERT into payments
-        # --here complete the code
-        #
-        # """
-        # db = database_worker("payments.db")
-        # db.run_save(query)
-        # db.close()
+        variables = [base, inhabitant, income_tax, pension, health, salary, hash]
+        variables_labels = ["base", "inhabitant", "income_tax", "pension", "health", "salary", "hash"]
+
+        x = 0
+        for variable in variables:
+            variable = self.root.ids[variables_labels[x]+"_label"].text
+            variable = variable[:-4]
+            x += 1
+
+        query = f"""INSERT into payments (base, inhabitant, income_tax, pension, health, total, hash) VALUES ({base}, {inhabitant}, {income_tax}, {pension}, {health}, {salary}, '{hash}')"""
+        db = database_worker("payments.db")
+        db.run_save(query)
+        db.close()
         self.root.ids.hash.text = f"Payment saved"
 
     def clear(self):
