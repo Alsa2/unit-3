@@ -1,16 +1,9 @@
--- SQLite
+# Quizz 45
+## Part 1 - UML Diagrams of my database
+![diagram](Project/Project/g3/assets/documentation/UML.png)
 
-SELECT name FROM sqlite_master WHERE type='table';
-
-SELECT * FROM sqlite_sequence;
-
-SELECT * FROM customers;
-
-SELECT * FROM accounts;
-
-SELECT * FROM transactions;
-
--- Thanks to bernard
+## Part 2 - SQL Queries
+```sql
 SELECT
   CASE
     WHEN total_deposit - total_withdraw != balance THEN 'bad'
@@ -39,4 +32,8 @@ FROM (
 accounts
 WHERE a_d = a_w
   AND a_d = accounts.account_id;
+```
+<i>Thanks to Bernardino for crafting this perfect querry</i>
 
+### Proof
+![proof](Images/quizz45-proof.png)
